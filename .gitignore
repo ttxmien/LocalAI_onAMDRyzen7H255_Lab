@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+
+# Local Vector DB & Models
+chroma_db/
+faiss_index/
+models/
+*.gguf
+*.bin
+*.onnx
+
+# Logs & Benchmark outputs
+benchmarks/results/*.json
+benchmarks/results/*.csv
+*.log
+
+# Environment & IDE
+.env
+.vscode/
+.idea/
+.DS_Store
