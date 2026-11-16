@@ -1,6 +1,6 @@
 # 🧠 ThinkBook Local AI Lab (Ryzen 7 H 255 / 32GB / Radeon 780M)
 
-Kho lưu trữ tài liệu, lộ trình học tập từ lý thuyết đến thực hành, script tối ưu phần cứng và các dự án ứng dụng **Local LLM / AI Engineering** được thiết kế và tinh chỉnh riêng cho cấu hình **Lenovo ThinkBook 14 G8+ (21VR)**:
+Lưu trữ tài liệu, lộ trình học tập từ lý thuyết đến thực hành, script tối ưu phần cứng và các dự án ứng dụng **Local LLM / AI Engineering** được thiết kế và tinh chỉnh riêng cho cấu hình **Lenovo ThinkBook 14 G8+ (21VR)**:
 - **CPU:** AMD Ryzen 7 H 255 (8 nhân / 16 luồng, Zen 4)
 - **RAM:** 32GB LPDDR5x 7500MT/s (Shared Unified Memory)
 - **GPU:** AMD Radeon 780M (12 nhân RDNA 3 — tăng tốc qua Vulkan / ROCm)
@@ -8,8 +8,8 @@ Kho lưu trữ tài liệu, lộ trình học tập từ lý thuyết đến th�
 
 ---
 
-## 🎯 Mục tiêu của Repo
-1. Làm chủ kiến thức nền tảng về LLM, Quantization (GGUF), Context Window, KV Cache và kiến trúc Inference trên iGPU AMD.
+## 🎯 Mục tiêu
+1. Kiến thức nền tảng về LLM, Quantization (GGUF), Context Window, KV Cache và kiến trúc Inference trên iGPU AMD.
 2. Cấu hình môi trường chạy Local AI tối ưu nhất trên Windows (tận dụng 32GB RAM tốc độ cao & Vulkan backend).
 3. Tích hợp AI cục bộ vào quy trình lập trình (VS Code) và tự động hóa tác vụ kỹ thuật / DevOps (phân tích log, sinh script, CI/CD).
 4. Xây dựng hệ thống **RAG (Retrieval-Augmented Generation)** đọc tài liệu kỹ thuật nội bộ hoàn toàn offline.
@@ -29,12 +29,12 @@ Kho lưu trữ tài liệu, lộ trình học tập từ lý thuyết đến th�
 
 ---
 
-## 🚀 Bắt đầu nhanh (Quick Start)
+## 🚀 Quick Start
 
-1. **Clone hoặc mở thư mục dự án trên máy:**
+1. **Clone và mở thư mục dự án:**
    ```bash
-   git clone https://github.com/<your-username>/thinkbook-local-ai-lab.git
-   cd thinkbook-local-ai-lab
+   git clone https://github.com/ttxmien/LocalAI_onAMDRyzen7H255_Lab.git
+   cd LocalAI_onAMDRyzen7H255_Lab
    ```
 2. **Tạo môi trường Python ảo:**
    ```powershell
@@ -47,11 +47,11 @@ Kho lưu trữ tài liệu, lộ trình học tập từ lý thuyết đến th�
    ```powershell
    .\scripts\setup_amd_env.ps1
    ```
-4. **Đọc tài liệu chi tiết theo thứ tự từng thư mục từ `01-foundations` đến `05-agents-devops`.**
+4. **Follow theo từng thư mục từ `01-foundations` đến `05-agents-devops`.**
 
 ---
 
-## 📊 Danh sách Model "Chân ái" cho ThinkBook 14 G8+ (32GB RAM)
+## 📊 Tham khảo các model "Chân ái" cho ThinkBook 14 G8+ (32GB RAM)
 
 - **Lập trình & DevOps chính:** `qwen2.5-coder:14b` (`Q4_K_M` ~9GB)
 - **Autocomplete siêu tốc trong VS Code:** `qwen2.5-coder:7b` (`Q8_0` ~8.1GB)
