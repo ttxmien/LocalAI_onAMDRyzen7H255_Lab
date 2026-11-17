@@ -1,4 +1,4 @@
-# 📊 Nhật ký Benchmark Cá nhân (ThinkBook 14 G8+ 21VR)
+# 📊 Benchmark (ThinkBook 14 G8+ 21VR)
 
 Ghi lại kết quả thực nghiệm khi thay đổi các thông số phần cứng/phần mềm để theo dõi quá trình tối ưu hóa:
 

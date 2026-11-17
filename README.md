@@ -1,4 +1,4 @@
-# 🧠 ThinkBook Local AI Lab (Ryzen 7 H 255 / 32GB / Radeon 780M)
+# 🧠 Local AI Lab (Ryzen 7H 255 / 32GB / Radeon 780M)
 
 Lưu trữ tài liệu, lộ trình học tập từ lý thuyết đến thực hành, script tối ưu phần cứng và các dự án ứng dụng **Local LLM / AI Engineering** được thiết kế và tinh chỉnh riêng cho cấu hình **Lenovo ThinkBook 14 G8+ (21VR)**:
 - **CPU:** AMD Ryzen 7 H 255 (8 nhân / 16 luồng, Zen 4)
@@ -51,7 +51,7 @@ Lưu trữ tài liệu, lộ trình học tập từ lý thuyết đến thực 
 
 ---
 
-## 📊 Tham khảo các model "Chân ái" cho ThinkBook 14 G8+ (32GB RAM)
+## 📊 Một số model "Chân ái" cho ThinkBook 14 G8+ (32GB RAM)
 
 - **Lập trình & DevOps chính:** `qwen2.5-coder:14b` (`Q4_K_M` ~9GB)
 - **Autocomplete siêu tốc trong VS Code:** `qwen2.5-coder:7b` (`Q8_0` ~8.1GB)

@@ -6,7 +6,7 @@
    ```powershell
    .\scripts\setup_amd_env.ps1
    ```
-3. **Quan trọng:** Chuột phải vào biểu tượng Ollama dưới khay hệ thống (System Tray) -> chọn **Quit Ollama**, sau đó mở lại **Ollama** từ Start Menu để nhận các biến môi trường Vulkan mới.
+3. **Note:** Chuột phải vào biểu tượng Ollama dưới khay hệ thống (System Tray) -> chọn **Quit Ollama**, sau đó mở lại **Ollama** từ Start Menu để nhận các biến môi trường Vulkan mới.
 
 ---
 
@@ -31,12 +31,12 @@ Trong khi cho model trả lời một câu hỏi dài, mở một cửa sổ Ter
 ```powershell
 ollama ps
 ```
-Nếu cột `PROCESSOR` hiển thị **`100% GPU`** (hoặc `85%/15% GPU/CPU`), xin chúc mừng — Radeon 780M của bạn đang hoạt động hết công suất!
+Nếu cột `PROCESSOR` hiển thị **`100% GPU`** (hoặc `85%/15% GPU/CPU`), -> Radeon 780M đang hoạt động hết công suất!
 
 ---
 
-## 🧪 Bài tập thực hành Phase 2: Đo tốc độ thực tế (Benchmark)
-Chạy script đo tốc độ sinh chữ (*tokens/giây*) và thời gian phản hồi đầu tiên (*TTFT - Time To First Token*) trên máy của bạn:
+## 🧪 Thực hành Phase 2: Đo tốc độ thực tế (Benchmark)
+Chạy script đo tốc độ sinh chữ (*tokens/giây*) và thời gian phản hồi đầu tiên (*TTFT - Time To First Token*) trên máy:
 ```bash
 python 02-setup-vulkan/benchmark_ollama.py
 ```
