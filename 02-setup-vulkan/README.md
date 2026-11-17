@@ -1,42 +1,35 @@
-# 🛠️ Phase 2: Cài đặt & Tối ưu Vulkan trên AMD Radeon 780M
+# 📚 Phase 2: Local Inference & AMD Optimization (Cài đặt Vulkan & Benchmark)
 
-## 1. Cài đặt Ollama trên Windows
-1. Tải bản cài đặt chính thức từ [ollama.com/download](https://ollama.com/download).
-2. Chạy script tối ưu biến môi trường AMD Vulkan (từ thư mục gốc repo):
+## 1. Tối ưu hóa iGPU AMD Radeon 780M trên Windows 11
+Mặc định, các framework AI thường ưu tiên tối ưu cho CUDA của NVIDIA. Tuy nhiên, trên laptop AMD chạy Windows, bạn có thể ép toàn bộ tải suy luận dồn 100% vào iGPU Radeon 780M mà không cần dùng đến Linux hay thư viện ROCm phức tạp:
+
+1. **Cấu hình BIOS (UMA Frame Buffer):** Khởi động máy, nhấn `F2` vào BIOS $\rightarrow$ tìm mục **UMA Frame Buffer Size** và chỉnh thành `8G` (cấp cứng 8GB VRAM tối thiểu cho iGPU, phần còn lại 24GB vẫn linh hoạt chia sẻ động).
+2. **Kích hoạt Backend Vulkan:** Ollama hỗ trợ tăng tốc phần cứng thông qua **Vulkan Compute** (tích hợp sẵn trong Driver AMD Adrenalin).
+3. **Thiết lập biến môi trường tối ưu:** Chạy PowerShell với quyền Administrator để kích hoạt cờ tăng tốc Vulkan và nén KV Cache:
    ```powershell
    .\scripts\setup_amd_env.ps1
    ```
-3. **Note:** Chuột phải vào biểu tượng Ollama dưới khay hệ thống (System Tray) -> chọn **Quit Ollama**, sau đó mở lại **Ollama** từ Start Menu để nhận các biến môi trường Vulkan mới.
 
 ---
 
-## 2. Tải bộ 3 Model chuẩn cho ThinkBook 14 G8+
-Mở Terminal (PowerShell) và tải các model sau:
+## 2. Kiểm tra hiệu năng thực tế phần cứng
+Sau khi cấu hình, luôn phải kiểm tra xem model đã chạy hoàn toàn trên GPU hay chưa:
 
-```powershell
-# 1. Model lập trình & DevOps chủ lực (14B)
-ollama pull qwen2.5-coder:14b
-
-# 2. Model chat đa năng & tiếng Việt mượt (12B)
-ollama pull gemma3:12b
-
-# 3. Model MoE hiệu năng cao (30B tổng, 3B kích hoạt)
-ollama pull qwen3:30b-a3b
-```
-
----
-
-## 3. Kiểm tra xem GPU Radeon 780M đã gánh tải chưa
-Trong khi cho model trả lời một câu hỏi dài, mở một cửa sổ Terminal khác và gõ:
-```powershell
-ollama ps
-```
-Nếu cột `PROCESSOR` hiển thị **`100% GPU`** (hoặc `85%/15% GPU/CPU`), -> Radeon 780M đang hoạt động hết công suất!
+- Mở Terminal và chạy model thử nghiệm:
+  ```powershell
+  ollama run qwen2.5-coder:7b
+  ```
+- Mở một cửa sổ Terminal khác và gõ lệnh kiểm tra trạng thái offload của Ollama:
+  ```powershell
+  ollama ps
+  ```
+  *(Nếu cột `PROCESSOR` hiển thị **100% GPU**, nghĩa là toàn bộ mô hình đã được nạp thành công vào Radeon 780M qua cổng Vulkan).*
 
 ---
 
-## 🧪 Thực hành Phase 2: Đo tốc độ thực tế (Benchmark)
-Chạy script đo tốc độ sinh chữ (*tokens/giây*) và thời gian phản hồi đầu tiên (*TTFT - Time To First Token*) trên máy:
+## 🧪 Thực hành Phase 2
+Chạy script Python đo đạc thông lượng thực tế (`tokens/sec`) và thời gian phản hồi đầu tiên (`TTFT`) trên chiếc ThinkBook của bạn:
+
 ```bash
 python 02-setup-vulkan/benchmark_ollama.py
 ```
